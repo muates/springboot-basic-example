@@ -1,0 +1,14 @@
+mutation -> {
+
+    addCustomer(request: CustomerAddRequest): CustomerResponse
+
+
+}
+
+input CustomerAddRequest {
+
+}
+
+type CustomerResponse {
+
+}

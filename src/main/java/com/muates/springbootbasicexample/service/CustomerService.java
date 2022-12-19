@@ -6,7 +6,7 @@ import com.muates.springbootbasicexample.model.dto.response.CustomerResponse;
 
 import java.util.List;
 
-public interface ICustomerService {
+public interface CustomerService {
     CustomerResponse addCustomer(CustomerAddRequest request);
     CustomerResponse getCustomer(Long id);
     CustomerResponse updateCustomer(CustomerUpdateRequest request);

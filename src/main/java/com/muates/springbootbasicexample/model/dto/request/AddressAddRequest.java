@@ -9,7 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CustomerUpdateRequest {
+public class AddressAddRequest {
 
-    private String phone;
+    private String country;
+    private String city;
+    private String neighbourhood;
+    private String street;
+    private Long customerId;
 }

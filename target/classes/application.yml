@@ -1,15 +1,19 @@
 server:
-  port: 8084
+  port: 8080
 
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/bilgeadam_db
+    url: jdbc:postgresql://localhost:5432/exampledb
     username: postgres
-    password: mysecretpassword
+    password: postgres
   jpa:
     hibernate:
       ddl-auto: update
 
   jackson:
     date-format: yyyy-MM-dd
+
+  graphql:
+    graphiql:
+      enabled: true

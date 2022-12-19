@@ -1,12 +1,13 @@
 package com.muates.springbootbasicexample.service.impl;
 
 import com.muates.springbootbasicexample.converter.CustomerConverter;
+import com.muates.springbootbasicexample.exception.CustomerNotFoundException;
 import com.muates.springbootbasicexample.model.dto.request.CustomerAddRequest;
 import com.muates.springbootbasicexample.model.dto.request.CustomerUpdateRequest;
 import com.muates.springbootbasicexample.model.dto.response.CustomerResponse;
 import com.muates.springbootbasicexample.model.entity.Customer;
 import com.muates.springbootbasicexample.repository.CustomerRepository;
-import com.muates.springbootbasicexample.service.ICustomerService;
+import com.muates.springbootbasicexample.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,7 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Transactional
 @Service
-public class CustomerServiceImpl implements ICustomerService {
+public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
 
@@ -36,7 +37,7 @@ public class CustomerServiceImpl implements ICustomerService {
         Optional<Customer> customer = customerRepository.findById(id);
 
         if (customer.isEmpty())
-            throw new RuntimeException();
+            throw new CustomerNotFoundException("CustomerId doesn't exist");
 
         return CustomerConverter.convertToResponse(customer.get());
     }

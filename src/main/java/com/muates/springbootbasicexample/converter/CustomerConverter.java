@@ -11,7 +11,6 @@ public class CustomerConverter {
                 .name(request.getName())
                 .email(request.getEmail())
                 .phone(request.getPhone())
-                .address(request.getAddress())
                 .build();
     }
 
@@ -20,7 +19,6 @@ public class CustomerConverter {
                 .id(customer.getId())
                 .name(customer.getName())
                 .email(customer.getEmail())
-                .address(customer.getAddress())
                 .phone(customer.getPhone())
                 .build();
     }

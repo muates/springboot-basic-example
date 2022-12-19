@@ -1,0 +1,39 @@
+type Mutation {
+    addCustomer(request: CustomerAddRequest): CustomerResponse
+    addAddress(request: AddressAddRequest): AddressResponse
+}
+
+type Query {
+    findCustomerId(id: ID!): CustomerResponse
+    findAddressById(id: ID!): AddressResponse
+}
+
+input AddressAddRequest {
+    country: String!
+    city: String!
+    neighbourhood: String!
+    street: String!
+    customerId: ID!
+}
+
+input CustomerAddRequest {
+    name: String!
+    email: String!
+    phone: String
+}
+
+type AddressResponse {
+    id: ID!
+    country: String!
+    city: String!
+    neighbourhood: String!
+    street: String!
+    customer: CustomerResponse
+}
+
+type CustomerResponse {
+    id: ID!
+    name: String!
+    email: String!
+    phone: String
+}

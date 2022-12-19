@@ -6,29 +6,23 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Entity
-@Table(name = "customers")
+@Table(name = "addresses")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Customer {
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", length = 50)
-    private String name;
+    private String country;
+    private String city;
+    private String neighbourhood;
+    private String street;
 
-    private String email;
-    private String phone;
-
-    @OneToMany(
-            mappedBy = "customer",
-            cascade = CascadeType.ALL
-    )
-    private List<Address> addresses;
+    @ManyToOne
+    private Customer customer;
 }
